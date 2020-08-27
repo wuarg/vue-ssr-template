@@ -1,12 +1,12 @@
-import { createApp } from './app'
-import NProgress from 'nprogress'
-const { app, router, store } = createApp()
+import { createApp } from "./app";
+import NProgress from "nprogress";
+const { app, router, store } = createApp();
 
 if (window.__INITIAL_STATE__) {
-  store.replaceState(window.__INITIAL_STATE__)
+  store.replaceState(window.__INITIAL_STATE__);
 }
 
-NProgress.configure({ easing: 'ease', speed: 500, showSpinner: false })
+NProgress.configure({ easing: "ease", speed: 500, showSpinner: false });
 
 router.onReady(() => {
   // Add router hook for handling asyncData.
@@ -14,32 +14,36 @@ router.onReady(() => {
   // the data that we already have. Using router.beforeResolve() so that all
   // async components are resolved.
   router.beforeResolve((to, from, next) => {
-    const matched = router.getMatchedComponents(to)
-    const prevMatched = router.getMatchedComponents(from)
+    const matched = router.getMatchedComponents(to);
+    const prevMatched = router.getMatchedComponents(from);
 
-    let diffed = false
+    let diffed = false;
     const activated = matched.filter((c, i) => {
-      return diffed || (diffed = (prevMatched[i] !== c))
-    })
+      return diffed || (diffed = prevMatched[i] !== c);
+    });
     if (!activated.length) {
-      return next()
+      return next();
     }
     // start loading indicator
-    Promise.all(activated.map(c => {
-      NProgress.start()
-      if (c.asyncData) {
-        return c.asyncData({ store, route: to })
-      }
-    })).then(() => {
-      // stop loading indicator
-      NProgress.done()
-      next()
-    }).catch(next)
-  })
-  app.$mount('#app')
-})
+    Promise.all(
+      activated.map((c) => {
+        NProgress.start();
+        if (c.asyncData) {
+          return c.asyncData({ store, route: to });
+        }
+      })
+    )
+      .then(() => {
+        // stop loading indicator
+        NProgress.done();
+        next();
+      })
+      .catch(next);
+  });
+  app.$mount("#app");
+});
 
 // service worker
-if (window.location.protocol === 'https:' && navigator.serviceWorker) {
-  navigator.serviceWorker.register('/service-worker.js')
+if (window.location.protocol === "https:" && navigator.serviceWorker) {
+  navigator.serviceWorker.register("/service-worker.js");
 }

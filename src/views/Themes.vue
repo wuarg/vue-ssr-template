@@ -3,10 +3,22 @@
     <ol class="breadcrumb">
       <li class="active">Themes</li>
     </ol>
-    <div class="media" v-for="item in themes">
+    <div
+      class="media"
+      v-for="(item,index) in themes"
+      :key="index"
+    >
       <div class="media-left">
-        <a href="javascript:;" @click="themeView(item.id)">
-          <img class="media-object" width="52" :src="item.thumbnail" :alt="item.name">
+        <a
+          href="javascript:;"
+          @click="themeView(item.id)"
+        >
+          <img
+            class="media-object"
+            width="52"
+            :src="item.thumbnail"
+            :alt="item.name"
+          >
         </a>
       </div>
       <div class="media-body">
@@ -20,7 +32,7 @@
 import { mapGetters } from 'vuex'
 export default {
   name: 'Theme',
-  title() {
+  title () {
     return {
       title: 'Themes',
       keywords: 'vue-ssr服务端脚手架, themes',
@@ -33,11 +45,11 @@ export default {
     })
   },
   methods: {
-    themeView(id) {
+    themeView (id) {
       this.$router.push({ path: '/theme/' + id, params: { id } })
     }
   },
-  asyncData({ store }) {
+  asyncData ({ store }) {
     return store.dispatch('getThemes')
   }
 }

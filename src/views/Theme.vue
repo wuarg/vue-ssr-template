@@ -2,7 +2,10 @@
   <div class="themes">
     <ol class="breadcrumb">
       <li class="active">Theme</li>
-      <li><a @click="$router.go(-1)" href="javascript:;">back</a></li>
+      <li><a
+          @click="$router.go(-1)"
+          href="javascript:;"
+        >back</a></li>
     </ol>
     <pre>{{jsons}}</pre>
   </div>
@@ -18,7 +21,7 @@ export default {
       description: this.theme.description
     }
   },
-  data() {
+  data () {
     return {
       open: false,
       jsons: {}
@@ -33,7 +36,7 @@ export default {
     this.jsons = JSON.stringify(this.theme, null, 2)
   },
   methods: {},
-  asyncData({ store, route }) {
+  asyncData ({ store, route }) {
     return store.dispatch('getTheme', route.params.id)
   }
 }

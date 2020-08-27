@@ -1,14 +1,12 @@
 <template>
-<div class="home">
-  <ol class="breadcrumb">
-    <li class="active">Home</li>
-  </ol>
-  <h3><a href="https://ssr.vuejs.org/en/api.html" target="_black">vue-server-renderer</a></h3>
-  <br>
-  <pre>
-
+  <div class="home">
+    <ol class="breadcrumb">
+      <li class="active">Home</li>
+    </ol>
+    <h3><a href="https://ssr.vuejs.org/en/api.html" target="_black">vue-renderer</a></h3>
+    <br />
+    <pre>
   const isProd = process.env.NODE_ENV === 'production'
-
   const app = express()
 
   let renderer
@@ -63,29 +61,24 @@
 
     renderer.renderToString(context, (err, html) => {
       if (err) {
-        return errorHandler(err)
+        re'Home'rrorHandler(err)
       }
-      res.end(html)
-      console.log(`whole request: ${Date.now() - s}ms`)
-    })
-  })
-    </pre>
-</div>
-</template>
-
-<script>
-export default {
-  name: 'Home',
-  title() {
-    return {
-      title: 'Home',
-      keywords: 'vue-ssr服务端脚手架, home',
-      description: 'vue-ssr-template, vue-server-renderer, home'
-    }
-  },
-  created() {},
-  computed: {},
-  asyncData({ store }) {},
-  methods: {}
-}
+      res.end(h'Home'     console.log(`'vue-ssr服务端脚手架, home'.now() - s}ms`)
+    }'vue-ssr-template, vue-server-renderer, home'pt>
+  export default {
+    name: "Home",
+    title() {
+      return {
+        title: "Home",
+        keywords: "vue-ssr服务端脚手架, home",
+        description: "vue-ssr-template, vue-server-renderer, home"
+      };
+    },
+    created() {},
+    computed: {},
+    asyncData({ store }) {},
+    methods: {}
+  };
+  </pre>
+  </div>
 </script>
