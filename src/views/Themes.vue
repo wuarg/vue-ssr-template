@@ -36,7 +36,7 @@ export default {
     return {
       title: 'Themes',
       keywords: 'vue-ssr服务端脚手架, themes',
-      description: 'vue-ssr-template, vue-server-renderer, themes'
+      description: 'chainSmell, vue-server-renderer, themes'
     }
   },
   computed: {

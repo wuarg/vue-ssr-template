@@ -7,6 +7,7 @@ import Themes from 'views/Themes.vue'
 import Widget from 'views/Widget.vue'
 import Counter from 'views/Counter.vue'
 import Theme from 'views/Theme.vue'
+import Demo from 'views/Demo.vue'
 
 Vue.use(VueRouter)
 
@@ -14,25 +15,36 @@ const router = new VueRouter({
   mode: 'history',
   linkActiveClass: 'active',
   base: __dirname,
-  routes: [{
-    path: '/',
-    component: Home
-  }, {
-    path: '/About',
-    component: About
-  }, {
-    path: '/Themes',
-    component: Themes
-  }, {
-    path: '/Widget',
-    component: Widget
-  }, {
-    path: '/Counter',
-    component: Counter
-  }, {
-    path: '/Theme/:id',
-    component: Theme
-  }]
+  routes: [
+    {
+      path: '/',
+      component: Home
+    },
+    {
+      path: '/About',
+      component: About
+    },
+    {
+      path: '/Themes',
+      component: Themes
+    },
+    {
+      path: '/Widget',
+      component: Widget
+    },
+    {
+      path: '/Counter',
+      component: Counter
+    },
+    {
+      path: '/Theme/:id',
+      component: Theme
+    },
+    {
+      path: '/Demo',
+      component: Demo
+    }
+  ]
 })
 
 export default router

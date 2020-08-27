@@ -4,7 +4,10 @@
       <div class="container-fluid">
         <avator></avator>
         <p class="navbar-text">
-          <a v-bind:href="href" target="_blank">{{title}}</a>
+          <a
+            v-bind:href="href"
+            target="_blank"
+          >{{title}}</a>
         </p>
       </div>
     </nav>
@@ -16,10 +19,10 @@ import avator from 'components/avator/Avator.vue'
 
 export default {
   name: 'TopHeader',
-  data() {
+  data () {
     return {
-      href: 'https://github.com/eugeneCN/vue-ssr-template',
-      title: 'vue-ssr-template'
+      href: 'https://github.com/eugeneCN/chainSmell',
+      title: 'chainSmell'
     }
   },
   components: {

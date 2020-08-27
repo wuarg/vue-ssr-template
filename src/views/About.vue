@@ -22,7 +22,7 @@
         <btn
           type="success"
           @click="createUid"
-        >create uuid</btn>
+        >create uid</btn>
       </div>
     </div>
   </div>
@@ -35,7 +35,7 @@ export default {
     return {
       title: 'About',
       keywords: 'vue-ssr服务端脚手架, about',
-      description: 'vue-ssr-template, vue-server-renderer, about'
+      description: 'chainSmell, vue-server-renderer, about'
     }
   },
   data () {

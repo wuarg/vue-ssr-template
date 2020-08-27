@@ -54,7 +54,7 @@ export default {
     return {
       title: 'Widget',
       keywords: 'vue-ssr服务端脚手架, widget',
-      description: 'vue-ssr-template, vue-server-renderer, widget'
+      description: 'chainSmell, vue-server-renderer, widget'
     }
   },
   methods: {

@@ -1,19 +1,19 @@
-import { createApp } from "./app";
+import { createApp } from './app'
 
 export default (context) => {
   return new Promise((resolve, reject) => {
-    const { app, router, store } = createApp();
-    router.push(context.url);
+    const { app, router, store } = createApp()
+    router.push(context.url)
     router.onReady(() => {
-      const matchedComponents = router.getMatchedComponents();
+      const matchedComponents = router.getMatchedComponents()
       if (!matchedComponents.length) {
-        return reject({ code: 404 });
+        return reject({ code: 404 })
       }
       // Call fetchData hooks on components matched by the route.
       // A preFetch hook dispatches a store action and returns a Promise,
       // which is resolved when the action is complete and store state has been
       // updated.
-      process.Cookies = context.cookies;
+      process.Cookies = context.cookies
       Promise.all(
         matchedComponents.map((Component) => {
           if (Component.asyncData) {
@@ -21,7 +21,7 @@ export default (context) => {
               store,
               route: router.currentRoute,
               cookies: context.cookies,
-            });
+            })
           }
         })
       )
@@ -32,10 +32,10 @@ export default (context) => {
           // inline the state in the HTML response. This allows the client-side
           // store to pick-up the server-side state without having to duplicate
           // the initial data fetching on the client.
-          context.state = store.state;
-          resolve(app);
+          context.state = store.state
+          resolve(app)
         })
-        .catch(reject);
-    }, reject);
-  });
-};
+        .catch(reject)
+    }, reject)
+  })
+}

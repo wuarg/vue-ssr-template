@@ -1,6 +1,11 @@
 <template>
   <ul class="nav nav-pills">
-    <li v-for="item in menus" :class="styleClass(item)" @click="toPath(item)">
+    <li
+      v-for="(item,index) in menus"
+      :key="index"
+      :class="styleClass(item)"
+      @click="toPath(item)"
+    >
       <a href="javascript:;">{{item.text}}</a>
     </li>
   </ul>
@@ -8,7 +13,7 @@
 <script>
 export default {
   name: 'menus',
-  data() {
+  data () {
     return {
       menus: [{
         text: 'Home',
@@ -25,14 +30,17 @@ export default {
       }, {
         text: 'Counter',
         path: '/counter'
+      }, {
+        text: 'Demo',
+        path: '/demo'
       }]
     }
   },
   methods: {
-    styleClass(item) {
+    styleClass (item) {
       return { active: item.path === this.$route.path }
     },
-    toPath(path) {
+    toPath (path) {
       this.$router.replace(path)
     }
   }

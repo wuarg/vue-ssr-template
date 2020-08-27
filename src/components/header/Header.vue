@@ -1,8 +1,11 @@
 <template>
-	<header id="header" class="header">
-	  <top-header></top-header>
-	  <top-menus></top-menus>
-	</header>
+  <header
+    id="header"
+    class="header"
+  >
+    <top-header></top-header>
+    <top-menus></top-menus>
+  </header>
 </template>
 <script>
 import TopHeader from 'components/header/TopHeader.vue'

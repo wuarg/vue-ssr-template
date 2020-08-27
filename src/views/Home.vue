@@ -54,7 +54,7 @@
     }
 
     const context = {
-      title: 'vue-ssr-template',
+      title: 'chainSmell',
       url: req.url,
       cookies: req.cookies
     }
@@ -64,14 +64,14 @@
         re'Home'rrorHandler(err)
       }
       res.end(h'Home'     console.log(`'vue-ssr服务端脚手架, home'.now() - s}ms`)
-    }'vue-ssr-template, vue-server-renderer, home'pt>
+    }'chainSmell, vue-server-renderer, home'pt>
   export default {
     name: "Home",
     title() {
       return {
         title: "Home",
         keywords: "vue-ssr服务端脚手架, home",
-        description: "vue-ssr-template, vue-server-renderer, home"
+        description: "chainSmell, vue-server-renderer, home"
       };
     },
     created() {},
